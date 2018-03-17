@@ -3,14 +3,14 @@
 
 var numbers = [0.1, 0.2, 0.3, 0.4, 0.5];
 function double(numbers) {
-  return numbers * 2;
+  return numbers * 100;
 }
 var numbersDoubled1 = numbers.map(double);
 var numbersDoubled2 = numbers.map(function double(number) {
-  return number * 2;
+  return number * 100;
 });
 var numbersDoubled3 = numbers.map(function(number) {
-  return number * 2;
+  return number * 100;
 });
 var numbersDoubled4 = numbers.map(number => number * 2);
 
