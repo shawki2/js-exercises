@@ -33,5 +33,25 @@ When you open index.html in your browser, it should display the existing message
 
 */
 
+//var mybutton = document.querySelector("#submit");
+//var changeButton = function() {
+//var box = document.querySelector("#message-list");
+setInterval(function() {
+  fetch("https://codeyourfuture.herokuapp.com/api/messages")
+    //fetch("https://www.facebook.com")
+    //fetch("https://codeyourfuture.slack.com/messages/C7MADBDU1/")
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(greeting) {
+      var container = document.querySelector("#message-list");
+      //container.innerText = greeting;
+      container.innerText = greeting.map(
+        element => element.content + "            " + element.datetime + "\n"
+      );
 
-// Write your code here
+      // conole.log(greeting);// Write the code to display the greeting text here
+    });
+}, 2000);
+//};
+//mybutton.addEventListener("click", changeButton);

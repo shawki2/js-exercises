@@ -22,8 +22,32 @@ After opening index.html in your browser, write a message in the input field and
 on the submit button. Then check the following:
 
 1) The input field should be empty.
-2) When you refresh the page in your browser, you should be able to see your new message in the message list.
+2) When you refresh the page in your browser, you should be able to see your new message 
+in the message list.
 */
 
-
 // Write your code here
+var myButton = document.querySelector("#submit");
+
+//var clipboardTitle = "myClipboardId";
+//var clipboardText = "Some thing to write";
+
+myButton.addEventListener("click", function() {
+  var box = document.querySelector("#message-input");
+
+  var requestBody = { content: box.value };
+
+  var postRequestParameters = {
+    body: JSON.stringify(requestBody),
+    method: "POST",
+    headers: {
+      "content-type": "application/json"
+    }
+  };
+
+  fetch(
+    "https://codeyourfuture.herokuapp.com/api/messages",
+    postRequestParameters
+  );
+  box.value = "";
+});

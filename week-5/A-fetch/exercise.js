@@ -16,11 +16,21 @@ Expected result
 Open index.html in your browser. Every time you refresh the page,
 a different greeting should be displayed in the box.
 */
+//var myRequest = document.querySelector("#greeting-text");
+var mybutton = document.querySelector("#fetchButton");
+var changeButton = function() {
+  var box = document.querySelector("#greeting-text");
 
-fetch('*** Write the API address here ***')
+  fetch("https://codeyourfuture.herokuapp.com/api/greetings")
+    //fetch("https://www.facebook.com")
+    //fetch("https://codeyourfuture.slack.com/messages/C7MADBDU1/")
     .then(function(response) {
-        return response.text();
+      return response.text();
     })
     .then(function(greeting) {
-        // Write the code to display the greeting text here
+      var container = document.querySelector("#greeting-text");
+      container.innerText = greeting;
+      // conole.log(greeting);// Write the code to display the greeting text here
     });
+};
+mybutton.addEventListener("click", changeButton);

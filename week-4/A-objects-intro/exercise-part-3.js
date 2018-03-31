@@ -12,5 +12,4 @@ Make sure you use words like:
 - string / number / boolean
 - declaring a variable
 - etc.
-
 */
